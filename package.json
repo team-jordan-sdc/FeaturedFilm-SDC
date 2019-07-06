@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-watch": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "seed": "node server/seeder.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
     "webpack": "^2.7.0"
   },
   "dependencies": {
+    "bluebird": "^3.3.4",
+    "mysql": "^2.12.0",
     "body-parser": "^1.17.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
