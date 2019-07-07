@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const Promise = require ('bluebird');
 const database = 'featurefilm'
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 const connection = mysql.createConnection({
   user: 'root',
@@ -9,12 +10,24 @@ const connection = mysql.createConnection({
 
 const db = Promise.promisifyAll(connection, {multiArgs: true});
 
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 5,
+    min: 2
+  },
+  wordsPerSentence: {
+    max: 10,
+    min: 4
+  }
+});
+
 
 const movieNames = `The Shawshank Redemption
-The Godfather (1972) The Godfather, Part II
+The Godfather
+The Godfather, Part II
 The Dark Knight
 12 Angry Men
-Schindler's List
+Schindlers List
 Pulp Fiction
 The Lord of the Rings: The Return of the King
 The Good, the Bad, and the Ugly
@@ -22,9 +35,9 @@ Fight Club
 The Lord of the Rings: The Fellowship of the Ring
 Forrest Gump
 Star Wars: Episode V: The Empire Strikes Back
-Inception (2010)
+Inception
 The Lord of the Rings: The Two Towers
-One Flew Over The Cuckoo's Nest
+One Flew Over The Cuckoos Nest
 GoodFellas
 The Matrix
 The Seven Samurai
@@ -32,7 +45,7 @@ Star Wars
 City of God
 Se7en
 The Silence of the Lambs
-It's A Wonderful Life
+Its A Wonderful Life
 Life is Beautiful
 The Usual Suspects
 Leon, aka The Professional
@@ -64,7 +77,7 @@ Alien
 The Great Dictator
 Sunset Boulevard
 Cinema Paradiso
-Dr. Strangelove or: How I Learned To Stop Worrying and Love the Bomb
+Dr. Strangelove
 The Lives of Others
 Grave of the Fireflies
 Paths of Glory
@@ -100,7 +113,7 @@ Eternal Sunshine of the Spotless Mind
 Taxi Driver
 To Kill A Mockingbird
 Full Metal Jacket
-Singin' In The Rain
+Singin In The Rain
 2001: A Space Odyssey
 Toy Story
 3 Idiots
@@ -111,7 +124,9 @@ The Bicycle Thief
 The Kid`;
 
 var movieNamesArray = movieNames.split('\n');
-console.log(movieNamesArray);
+//console.log(movieNamesArray);
+var tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
+var mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
 
 db.connectAsync()
   .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${database}`))
@@ -120,16 +135,16 @@ db.connectAsync()
   .then(() => db.queryAsync(`
     CREATE TABLE Features (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR (20),
-      category_1 VARCHAR(10),
-      category_2 VARCHAR(10),
+      title VARCHAR (50),
+      category_1 VARCHAR(30),
+      category_2 VARCHAR(30),
       release_date INT,
-      mpaa_rating VARCHAR(5),
+      mpaa_rating VARCHAR(15),
       length INT,
       star_rating INT,
       star_rating_count INT,
       rt_rating INT,
-      description VARCHAR(350),
+      description VARCHAR(700),
       hd_rent INT,
       sd_rent INT,
       hs_cost INT,
@@ -142,35 +157,43 @@ db.connectAsync()
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       film_name VARCHAR(20)
   )`))
-  // .then(()=> {
-  //   for(var x = 0; x < 100; x++){
-  //     db.queryAsync(`INSERT INTO Features (
-  //       title,
-  //       category_1,
-  //       category_2,
-  //       release_date,
-  //       mpaa_rating,
-  //       length,
-  //       star_rating,
-  //       star_rating_count,
-  //       rt_rating,
-  //       description,
-  //       hd_rent,
-  //       sd_rent,
-  //       hs_cost,
-  //       sd_cost,
-  //       movie_shot_url,
-  //       movie_cover_url
-  //     ) VALUES (
-
-
-  //     )
-
-  //     `)
-  //   }
-
-
-
-
-
-  // })
+  .then(()=> {
+    for(var x = 0; x < 100; x++){
+      db.queryAsync(`INSERT INTO Features (
+        title,
+        category_1,
+        category_2,
+        release_date,
+        mpaa_rating,
+        length,
+        star_rating,
+        star_rating_count,
+        rt_rating,
+        description,
+        hd_rent,
+        sd_rent,
+        hs_cost,
+        sd_cost,
+        movie_shot_url,
+        movie_cover_url
+      ) VALUES (
+        '${movieNamesArray[Math.floor(Math.random()*movieNamesArray.length) -1]}',
+        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
+        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
+        ${1930 + Math.floor(Math.random()* 90)},
+       ' ${mpaaRatings[Math.floor(Math.random()*mpaaRatings.length) -1]}',
+        ${Math.floor(Math.random()*200)},
+        ${Math.random()*5},
+        ${Math.floor(Math.random()*5000)},
+        ${Math.floor(Math.random()*100)},
+        '${lorem.generateParagraphs(2)}',
+        ${Math.floor(Math.random()*2000)/100},
+        ${Math.floor(Math.random()*2000)/100},
+        ${Math.floor(Math.random()*2000)/100},
+        ${Math.floor(Math.random()*2000)/100},
+        'testURL',
+        'testURL2'
+      )
+      `)
+    }
+  })
