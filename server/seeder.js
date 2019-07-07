@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 const Promise = require ('bluebird');
-const database = 'featurefilm'
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
+const database = 'featurefilm'
 const connection = mysql.createConnection({
   user: 'root',
   password: ''
@@ -152,13 +152,13 @@ db.connectAsync()
       movie_shot_url VARCHAR(30),
       movie_cover_url VARCHAR(30)
     )`))
-  .then(()=> db.queryAsync(`
+  .then(() => db.queryAsync(`
     CREATE TABLE Wishlist (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       film_name VARCHAR(20)
   )`))
-  .then(()=> {
-    for(var x = 0; x < 100; x++){
+  .then(() => {
+    for(var x = 0; x < 100; x++) {
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,
@@ -181,7 +181,7 @@ db.connectAsync()
         '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
         '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
         ${1930 + Math.floor(Math.random()* 90)},
-       ' ${mpaaRatings[Math.floor(Math.random()*mpaaRatings.length) -1]}',
+        '${mpaaRatings[Math.floor(Math.random()*mpaaRatings.length) -1]}',
         ${Math.floor(Math.random()*200)},
         ${Math.random()*5},
         ${Math.floor(Math.random()*5000)},
@@ -193,7 +193,17 @@ db.connectAsync()
         ${Math.floor(Math.random()*2000)/100},
         'testURL',
         'testURL2'
-      )
-      `)
+      )`)
+
+
+
     }
-  })
+  });
+
+  module.exports = {
+    movieNames,
+    tagsArray,
+    mpaaRatings,
+    db
+  }
+

@@ -4,7 +4,7 @@
   "description": "Module to display featured film on Moodu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "webpack-watch": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node server/seeder.js"
@@ -24,6 +24,7 @@
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "jest": "^24.8.0",
     "webpack": "^2.7.0"
   },
   "dependencies": {
