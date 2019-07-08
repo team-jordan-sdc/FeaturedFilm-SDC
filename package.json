@@ -1,0 +1,39 @@
+{
+  "name": "featuredfilm",
+  "version": "1.0.0",
+  "description": "Module to display featured film on Moodu",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "webpack-watch": "webpack -d --watch",
+    "start": "nodemon server/index.js",
+    "seed": "node server/seeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fec1-arwen/FeaturedFilm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fec1-arwen/FeaturedFilm/issues"
+  },
+  "homepage": "https://github.com/fec1-arwen/FeaturedFilm#readme",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "jest": "^24.8.0",
+    "webpack": "^2.7.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
+    "lorem-ipsum": "^2.0.3",
+    "mysql": "^2.12.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
