@@ -15,7 +15,7 @@ test('the seeded list has 100 entires', async()=> {
 test('the seeded db should contain titles from provided names',async()=>{
   //seed.db.query(`USE featurefilm`);
   seed.db.query(`select title from Features`, (err, res)=>{
-    expect(seed.movieNames).toContain(res[2].title);
+    expect(seed.movies).toContain(res[2].title);
 
   });
 });

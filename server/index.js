@@ -10,19 +10,23 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.status(200).end()
+})
+
 app.get('/api/featured', (req, res) => {
   console.log(req.body);
-  res.end()
+  res.status(200).end()
 });
 
 app.post('/api/rate', (req, res) => {
   console.log(req.body);
-  res.end();
+  res.status(200).end();
 });
 
 app.post('/api/wishlist', (req, res) => {
   console.log('test wishlist');
-  res.end();
+  res.status(200).end();
 });
 
 module.exports = app;
