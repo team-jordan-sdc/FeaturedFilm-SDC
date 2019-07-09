@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./index');
+const app = require('../server/index');
 
 describe('test root path', () => {
   test('it should respond with status code 200', () => {

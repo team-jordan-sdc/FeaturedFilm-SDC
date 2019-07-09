@@ -1,4 +1,4 @@
-const seed = require('./seeder');
+const seed = require('../server/seeder');
 
 test('the movie list has given movie', async () => {
   expect(seed.movies).toContain('Amelie');
