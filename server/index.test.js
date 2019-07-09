@@ -8,8 +8,17 @@ describe('test root path', () => {
 });
 
 describe('test featured item get request', () => {
-  test('it should respond with status code 200', () => {
-    return request(app).get('/api/featured').expect(200);
+  test('it should be one object with status code 200', async () => {
+    // return request(app)
+    //   .get('/api/featured')
+    //   .expect('Content-Type', /json/)
+    //   .expect(200);
+    const response = await request(app).get('/api/featured');
+    expect(response.body.length).toBe(1);
+    expect(typeof response.body[0].title).toBe('string');
+    expect(response.body[0]).toHaveProperty('id');
+    expect(response.body[0].title).not.toBeUndefined();
+    expect(response.statusCode).toBe(200);
   });
 });
 
