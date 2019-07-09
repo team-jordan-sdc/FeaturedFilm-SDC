@@ -7,7 +7,8 @@
     "test": "jest",
     "webpack-watch": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "seed": "node server/seeder.js"
+    "seed": "node server/seeder.js",
+    "lint": "eslint server/"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "express": "^4.15.0",
     "lorem-ipsum": "^2.0.3",
     "mysql": "^2.12.0",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   }

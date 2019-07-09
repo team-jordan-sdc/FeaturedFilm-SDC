@@ -1,24 +1,25 @@
 const mysql = require('mysql');
-const Promise = require ('bluebird');
-const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+const Promise = require('bluebird');
+const { LoremIpsum } = require('lorem-ipsum');
 
-const database = 'featurefilm'
+
+const database = 'featurefilm';
 const connection = mysql.createConnection({
   user: 'root',
-  password: ''
+  password: '',
 });
 
-const db = Promise.promisifyAll(connection, {multiArgs: true});
+const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
     max: 5,
-    min: 2
+    min: 2,
   },
   wordsPerSentence: {
     max: 10,
-    min: 4
-  }
+    min: 4,
+  },
 });
 
 
@@ -123,10 +124,10 @@ Inglourious Basterds
 The Bicycle Thief
 The Kid`;
 
-var movieNamesArray = movieNames.split('\n');
-//console.log(movieNamesArray);
-var tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
-var mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
+const movieNamesArray = movieNames.split('\n');
+
+const tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
+const mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
 
 db.connectAsync()
   .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${database}`))
@@ -158,7 +159,7 @@ db.connectAsync()
       film_name VARCHAR(20)
   )`))
   .then(() => {
-    for(var x = 0; x < 100; x++) {
+    for (let x = 0; x < 100; x += 1) {
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,
@@ -177,33 +178,29 @@ db.connectAsync()
         movie_shot_url,
         movie_cover_url
       ) VALUES (
-        '${movieNamesArray[Math.floor(Math.random()*movieNamesArray.length) -1]}',
-        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
-        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
-        ${1930 + Math.floor(Math.random()* 90)},
-        '${mpaaRatings[Math.floor(Math.random()*mpaaRatings.length) -1]}',
-        ${Math.floor(Math.random()*200)},
-        ${Math.random()*5},
-        ${Math.floor(Math.random()*5000)},
-        ${Math.floor(Math.random()*100)},
+        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length) - 1]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        ${1930 + Math.floor(Math.random() * 90)},
+        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length) - 1]}',
+        ${Math.floor(Math.random() * 200)},
+        ${Math.random() * 5},
+        ${Math.floor(Math.random() * 5000)},
+        ${Math.floor(Math.random() * 100)},
         '${lorem.generateParagraphs(2)}',
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
         'testURL',
         'testURL2'
-      )`)
-
-
-
+      )`);
     }
   });
 
-  module.exports = {
-    movieNames,
-    tagsArray,
-    mpaaRatings,
-    db
-  }
-
+module.exports = {
+  movieNames,
+  tagsArray,
+  mpaaRatings,
+  db,
+};
