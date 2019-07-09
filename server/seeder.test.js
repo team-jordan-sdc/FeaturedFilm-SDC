@@ -1,27 +1,21 @@
-const seed = require('./seeder')
+const seed = require('./seeder');
 
-test('the movie list has given movie', async() => {
+test('the movie list has given movie', async () => {
   expect(seed.movies).toContain('Amelie');
 });
 
-test('the seeded list has 100 entires', async()=> {
+test('the seeded list has 100 entires', async () => {
   seed.db.query(`USE featurefilm`);
-  seed.db.query(`select title from Features`, (err, res)=>{
+  seed.db.query(`select title from Features`, (err, res) => {
     expect(res.length).toEqual(100);
-    //done();
+    // done();
   });
 });
 
-test('the seeded db should contain titles from provided names',async()=>{
-  //seed.db.query(`USE featurefilm`);
-  seed.db.query(`select title from Features`, (err, res)=>{
+test('the seeded db should contain titles from provided names',async () => {
+  // seed.db.query(`USE featurefilm`);
+  seed.db.query(`select title from Features`, (err, res) => {
     expect(seed.movies).toContain(res[2].title);
 
   });
 });
-
-// test('the seeded db should have genres from provided tags', async()=>{
-//   seed.db.query(`select category_1 from Features`, (err, res)=>{
-//     expect(seed.tagsArray).toContain(res[2].category_1);
-//   })
-// })
