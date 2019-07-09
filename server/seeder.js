@@ -35,7 +35,7 @@ db.connectAsync()
   .then(() => db.queryAsync(`
     CREATE TABLE Features (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR (50),
+      title VARCHAR (100),
       category_1 VARCHAR(30),
       category_2 VARCHAR(30),
       release_date INT,

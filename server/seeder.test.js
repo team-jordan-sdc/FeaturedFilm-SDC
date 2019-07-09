@@ -1,7 +1,7 @@
 const seed = require('./seeder')
 
 test('the movie list has given movie', async() => {
-  expect(seed.movieNames).toContain('Amelie');
+  expect(seed.movies).toContain('Amelie');
 });
 
 test('the seeded list has 100 entires', async()=> {
