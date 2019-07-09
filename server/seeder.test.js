@@ -20,8 +20,8 @@ test('the seeded db should contain titles from provided names',async()=>{
   });
 });
 
-test('the seeded db should have genres from provided tags', async()=>{
-  seed.db.query(`select category_1 from Features`, (err, res)=>{
-    expect(seed.tagsArray).toContain(res[2].category_1);
-  })
-})
+// test('the seeded db should have genres from provided tags', async()=>{
+//   seed.db.query(`select category_1 from Features`, (err, res)=>{
+//     expect(seed.tagsArray).toContain(res[2].category_1);
+//   })
+// })
