@@ -1,132 +1,32 @@
 const mysql = require('mysql');
-const Promise = require ('bluebird');
-const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+const Promise = require('bluebird');
+const { LoremIpsum } = require('lorem-ipsum');
+const { movies } = require('./movieList.js');
 
-const database = 'featurefilm'
+
+const database = 'featurefilm';
 const connection = mysql.createConnection({
   user: 'root',
-  password: ''
+  password: '',
 });
 
-const db = Promise.promisifyAll(connection, {multiArgs: true});
+const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
     max: 5,
-    min: 2
+    min: 2,
   },
   wordsPerSentence: {
     max: 10,
-    min: 4
-  }
+    min: 4,
+  },
 });
 
+const movieNamesArray = movies.split('\n');
 
-const movieNames = `The Shawshank Redemption
-The Godfather
-The Godfather, Part II
-The Dark Knight
-12 Angry Men
-Schindlers List
-Pulp Fiction
-The Lord of the Rings: The Return of the King
-The Good, the Bad, and the Ugly
-Fight Club
-The Lord of the Rings: The Fellowship of the Ring
-Forrest Gump
-Star Wars: Episode V: The Empire Strikes Back
-Inception
-The Lord of the Rings: The Two Towers
-One Flew Over The Cuckoos Nest
-GoodFellas
-The Matrix
-The Seven Samurai
-Star Wars
-City of God
-Se7en
-The Silence of the Lambs
-Its A Wonderful Life
-Life is Beautiful
-The Usual Suspects
-Leon, aka The Professional
-Saving Private Ryan
-Spirited Away
-Coco
-American History X
-Interstellar
-Once Upon a Time in the West
-The Green Mile
-Psycho
-Casablanca
-City Lights
-Intouchables
-Modern Times
-The Pianist
-Raiders of the Lost Ark
-The Departed
-Rear Window
-Terminator 2: Judgment Day
-Back to the Future
-Whiplash
-Gladiator
-The Lion King
-The Prestige
-Memento
-Apocalypse Now
-Alien
-The Great Dictator
-Sunset Boulevard
-Cinema Paradiso
-Dr. Strangelove
-The Lives of Others
-Grave of the Fireflies
-Paths of Glory
-Django Unchained
-The Shining
-WALL-E
-American Beauty
-Princess Mononoke
-The Dark Knight Rises
-Blade Runner 2049
-Oldboy
-Witness For the Prosecution
-Aliens
-Once Upon a Time in America
-Das Boot
-Dangal
-Citizen Kane
-Vertigo
-North By Northwest
-Star Wars: Episode VI - Return of the Jedi
-Braveheart
-Reservoir Dogs
-M
-Requiem for a Dream
-Your Name
-Like Stars on Earth
-Amelie
-A Clockwork Orange
-Lawrence of Arabia
-Amadeus
-Double Indemnity
-Eternal Sunshine of the Spotless Mind
-Taxi Driver
-To Kill A Mockingbird
-Full Metal Jacket
-Singin In The Rain
-2001: A Space Odyssey
-Toy Story
-3 Idiots
-The Sting
-Toy Story 3
-Inglourious Basterds
-The Bicycle Thief
-The Kid`;
-
-var movieNamesArray = movieNames.split('\n');
-//console.log(movieNamesArray);
-var tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
-var mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
+const tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
+const mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
 
 db.connectAsync()
   .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${database}`))
@@ -135,7 +35,7 @@ db.connectAsync()
   .then(() => db.queryAsync(`
     CREATE TABLE Features (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR (50),
+      title VARCHAR (100),
       category_1 VARCHAR(30),
       category_2 VARCHAR(30),
       release_date INT,
@@ -158,7 +58,7 @@ db.connectAsync()
       film_name VARCHAR(20)
   )`))
   .then(() => {
-    for(var x = 0; x < 100; x++) {
+    for (let x = 0; x < 100; x += 1) {
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,
@@ -177,33 +77,29 @@ db.connectAsync()
         movie_shot_url,
         movie_cover_url
       ) VALUES (
-        '${movieNamesArray[Math.floor(Math.random()*movieNamesArray.length) -1]}',
-        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
-        '${tagsArray[Math.floor(Math.random()*tagsArray.length) -1]}',
-        ${1930 + Math.floor(Math.random()* 90)},
-        '${mpaaRatings[Math.floor(Math.random()*mpaaRatings.length) -1]}',
-        ${Math.floor(Math.random()*200)},
-        ${Math.random()*5},
-        ${Math.floor(Math.random()*5000)},
-        ${Math.floor(Math.random()*100)},
+        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length) - 1]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        ${1930 + Math.floor(Math.random() * 90)},
+        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length) - 1]}',
+        ${Math.floor(Math.random() * 200)},
+        ${Math.random() * 5},
+        ${Math.floor(Math.random() * 5000)},
+        ${Math.floor(Math.random() * 100)},
         '${lorem.generateParagraphs(2)}',
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
-        ${Math.floor(Math.random()*2000)/100},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
+        ${Math.floor(Math.random() * 2000)},
         'testURL',
         'testURL2'
-      )`)
-
-
-
+      )`);
     }
   });
 
-  module.exports = {
-    movieNames,
-    tagsArray,
-    mpaaRatings,
-    db
-  }
-
+module.exports = {
+  movies,
+  tagsArray,
+  mpaaRatings,
+  db,
+};
