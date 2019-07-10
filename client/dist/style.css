@@ -75,5 +75,14 @@ body {
   padding-right: 15px;
   font-size: 28px;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
 
+.generalStats {
+  margin-bottom: 5px;
+  border: solid lightblue 2px;
+}
+
+.ratings {
+  margin-bottom: 10px;
+  border: solid lightblue 2px;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieTitle from './movieTitle.jsx';
+import MovieStats from './filmStats.jsx'
 
 const FilmInfo = (props) => (
   <div>
