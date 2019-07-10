@@ -86,3 +86,52 @@ body {
   margin-bottom: 10px;
   border: solid lightblue 2px;
 }
+
+.stat {
+  margin-right: 10px;
+}
+
+.date {
+  line-height: 1.3;
+  font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 250;
+
+}
+
+.important {
+  background-color: #b0bec5;
+  color: #000;
+  font-size: 12px;
+  border-radius: 7px;
+  height: 17px;
+  padding: 0 12px;
+  line-height: 20px;
+  display: inline-block;
+  font-weight: 800;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.starzone {
+  margin-right: 27px;
+  height: 13px;
+  border: solid yellow 1px;
+  display: inline-flex;
+  font-size: 100%;
+
+}
+
+.nostars {
+  display: inline-block;
+  width: 73px;
+  height: 13px;
+  background-size: 73px 13px;
+  background-repeat: no-repeat;
+  background-image: url(https://www.vudu.com/bluesteel/images/Star_empty.svg);
+}
+
+.stars {
+  background-image: url(https://www.vudu.com/bluesteel/images/Star_full.svg);
+  background-repeat: no-repeat;
+  height:13px;
+
+}
