@@ -20,7 +20,6 @@ class App extends React.Component {
     return(
       <div>
         <BackgroundImage />
-        <div>test</div>
       </div>
     );
   }
