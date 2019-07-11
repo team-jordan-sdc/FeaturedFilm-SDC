@@ -70,7 +70,7 @@ const MovieStats = (props) => (
 
     <div className="description_zone">
       <div className="description">
-      Billy Batson is a streetwise 14-year-old who can magically transform into the adult superhero Shazam simply by shouting out one word. His newfound powers soon get put to the test when he squares off against the evil Dr. Thaddeus Sivana.
+        {props.film.description}
       </div>
     </div>
   </div>
