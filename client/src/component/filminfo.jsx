@@ -10,7 +10,7 @@ const FilmInfo = (props) => (
           <img src={props.film.movie_cover_url} alt="movie image goes here"></img>
         </div>
         <div className="movieInfo">
-          <MovieTitle />
+          <MovieTitle title={props.film.title} />
           <MovieStats />
         </div>
 
