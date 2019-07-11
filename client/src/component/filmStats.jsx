@@ -26,12 +26,12 @@ let tomatoStyle={
 
 
 
-const MovieStats = () => (
+const MovieStats = (props) => (
   <div>
     <div className="generalStats">
-      <span className="stat date">Apr 5</span>
-      <span className="stat important">NC-17</span>
-      <span className="stat important">9000 min</span>
+      <span className="stat date">{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</span>
+      <span className="stat important">{props.film.mpaa_rating}</span>
+      <span className="stat important">{props.film.length} min</span>
       <span className="stat important">CC</span>
     </div>
 

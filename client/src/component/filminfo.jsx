@@ -11,7 +11,7 @@ const FilmInfo = (props) => (
         </div>
         <div className="movieInfo">
           <MovieTitle title={props.film.title} />
-          <MovieStats />
+          <MovieStats film={props.film}/>
         </div>
 
 
