@@ -2,6 +2,9 @@ import React from 'react';
 // TODO populate with data from server
 let num = 3.5;
 let starWidth = 14.6 * num;
+
+
+
 let divStyle={
   width: starWidth + 'px',
 }
@@ -21,6 +24,8 @@ let tomatoStyle={
   'background-image': getTomatoStyle(90)
 }
 
+
+
 const MovieStats = () => (
   <div>
     <div className="generalStats">
@@ -29,6 +34,7 @@ const MovieStats = () => (
       <span className="stat important">9000 min</span>
       <span className="stat important">CC</span>
     </div>
+
     <div className="ratings">
 
       <div className="starzone">
@@ -43,7 +49,7 @@ const MovieStats = () => (
       </div>
     </div>
 
-      <div className="buttonzone">
+    <div className="buttonzone">
         <div className="mybutton">
           <button className="fancybutton">Trailer</button>
         </div>
@@ -58,6 +64,11 @@ const MovieStats = () => (
         </div>
       </div>
 
+    <div className="description_zone">
+      <div className="description">
+      Billy Batson is a streetwise 14-year-old who can magically transform into the adult superhero Shazam simply by shouting out one word. His newfound powers soon get put to the test when he squares off against the evil Dr. Thaddeus Sivana.
+      </div>
+    </div>
   </div>
 );
 
