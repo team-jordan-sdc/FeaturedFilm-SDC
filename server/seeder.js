@@ -61,7 +61,7 @@ db.connectAsync()
   )`))
   .then(() => {
     for (let x = 0; x < 100; x += 1) {
-      let movieId = Math.floor(Math.random() * 4);
+      let movieId = Math.floor(Math.random() * 4) +1;
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,

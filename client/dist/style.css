@@ -1,5 +1,4 @@
 .backgroundImage {
-  background-image: url(https://images2.vudu.com/background/1094591-1280a.jpg);
   margin-left: -4.4%;
   margin-right: -4.4%;
   min-height: 450px;
@@ -14,7 +13,7 @@
 
 body {
   width: 100%;
-  max-width: 1364px;
+  max-width: 1254px;
   min-width: 768px;
   margin: auto;
   font-size: 17px;

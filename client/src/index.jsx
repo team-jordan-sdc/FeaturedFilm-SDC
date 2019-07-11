@@ -8,18 +8,28 @@ class App extends React.Component {
     this.state = {
       film: {},
     }
-
-    //this.fetchFilm = this.fetchFilm.bind(this);
+    this.fetchRandFeaturedFilm = this.fetchRandFeaturedFilm.bind(this);
   }
 
   componentDidMount(){
     console.log('fetch random film')
+    this.fetchRandFeaturedFilm();
   }
+
+  fetchRandFeaturedFilm(){
+    fetch('/api/rand')
+    .then(res =>res.json())
+    .then((res) => {
+      console.log(res);
+      this.setState({film: res[0]})
+    });
+  }
+
 
   render(){
     return(
       <div>
-        <BackgroundImage />
+        <BackgroundImage film={this.state.film}/>
       </div>
     );
   }
