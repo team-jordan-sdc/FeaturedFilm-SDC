@@ -7,7 +7,7 @@ const FilmInfo = (props) => (
     <div className="filmInfo">
       <div className="contentZone">
         <div className="movieThumbnail">
-          <img src="https://images2.vudu.com/poster2/1094591-168" alt="movie image goes here"></img>
+          <img src={props.film.movie_cover_url} alt="movie image goes here"></img>
         </div>
         <div className="movieInfo">
           <MovieTitle />

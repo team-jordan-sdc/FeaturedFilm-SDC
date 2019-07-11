@@ -5,7 +5,7 @@ const BackgroundImage = (props) => (
   <div className="backgroundImage" style={
     {backgroundImage: `url(${props.film.movie_shot_url})`}
   }>
-    <FilmInfo />
+    <FilmInfo film={props.film}/>
     <div className="blueGradient"></div>
   </div>
 )
