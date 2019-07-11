@@ -43,6 +43,21 @@ const MovieStats = () => (
       </div>
     </div>
 
+      <div className="buttonzone">
+        <div className="mybutton">
+          <button className="fancybutton">Trailer</button>
+        </div>
+        <div id="wishlist" className="mybutton">
+          <button className="fancybutton">+Wishlist</button>
+        </div>
+        <div id="redeem" className="mybutton">
+          <button className="fancybutton dma_zone">
+            <div>Redeem</div>
+            <div className="dma_icon"></div>
+          </button>
+        </div>
+      </div>
+
   </div>
 );
 
