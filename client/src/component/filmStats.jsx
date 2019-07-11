@@ -1,5 +1,5 @@
 import React from 'react';
-// TODO populate with data from server
+// TODO host tomatos on s3
 let num = 3.5;
 let starWidth = 14.6 * num;
 
@@ -39,13 +39,17 @@ const MovieStats = (props) => (
 
       <div className="starzone">
         <div className="nostars">
-          <div className="stars" style={divStyle}></div>
+          <div className="stars" style={
+            {width: (14.6 * props.film.star_rating) + 'px',}
+          }></div>
         </div>
-        <div className="starnum">(32,719)</div>
+        <div className="starnum">({props.film.star_rating_count})</div>
       </div>
 
       <div className="rtzone">
-        <div className="tomato" style={tomatoStyle}>90%</div>
+        <div className="tomato" style={
+          {'background-image': getTomatoStyle(props.film.rt_rating)}
+        }>{props.film.rt_rating}%</div>
       </div>
     </div>
 
