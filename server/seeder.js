@@ -80,13 +80,13 @@ db.connectAsync()
         movie_shot_url,
         movie_cover_url
       ) VALUES (
-        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length) - 1]}',
-        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
-        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length)]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length)]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length)]}',
         ${1930 + Math.floor(Math.random() * 90)},
-        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length) - 1]}',
+        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length)]}',
         ${Math.floor(Math.random() * 200)},
-        ${Math.random() * 5},
+        ${Math.random() * 500},
         ${Math.floor(Math.random() * 5000)},
         ${Math.floor(Math.random() * 100)},
         '${lorem.generateParagraphs(2)}',

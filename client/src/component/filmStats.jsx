@@ -40,7 +40,7 @@ const MovieStats = (props) => (
       <div className="starzone">
         <div className="nostars">
           <div className="stars" style={
-            {width: (14.6 * props.film.star_rating) + 'px',}
+            {width: (14.6 * (props.film.star_rating / 100)) + 'px',}
           }></div>
         </div>
         <div className="starnum">({props.film.star_rating_count})</div>
