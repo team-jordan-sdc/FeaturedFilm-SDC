@@ -9,7 +9,7 @@ describe('test root path', () => {
 
 describe('test featured item get request', () => {
   test('it should be one object with status code 200', async () => {
-    const response = await request(app).get('/api/featured');
+    const response = await request(app).get('/api/rand');
     expect(response.body.length).toBe(1);
     expect(typeof response.body[0].title).toBe('string');
     expect(response.body[0]).toHaveProperty('id');
