@@ -6,6 +6,21 @@ let divStyle={
   width: starWidth + 'px',
 }
 
+
+var getTomatoStyle = function(rating){
+  if(rating> 74){
+    return `url(https://www.vudu.com/bluesteel/images/Tomato_certified_fresh.svg)`;
+  } else if(rating > 59){
+    return `url(https://www.vudu.com/bluesteel/images/Tomato_fresh.svg)`;
+  } else {
+    return `url(https://www.vudu.com/bluesteel/images/Tomato_rotten.svg)`;
+  }
+}
+
+let tomatoStyle={
+  'background-image': getTomatoStyle(90)
+}
+
 const MovieStats = () => (
   <div>
     <div className="generalStats">
@@ -15,10 +30,16 @@ const MovieStats = () => (
       <span className="stat important">CC</span>
     </div>
     <div className="ratings">
+
       <div className="starzone">
         <div className="nostars">
           <div className="stars" style={divStyle}></div>
         </div>
+        <div className="starnum">(32,719)</div>
+      </div>
+
+      <div className="rtzone">
+        <div className="tomato" style={tomatoStyle}>90%</div>
       </div>
     </div>
 

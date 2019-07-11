@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   background-color: #051c2b;
   position: relative;
-  border: solid yellow 5px;
+
   z-index: 0;
 }
 
@@ -42,7 +42,7 @@ body {
   height: 420px;
   margin-left: 30px;
   margin-top: 30px;
-  border: solid green 5px;
+
   z-index: 2
 }
 
@@ -59,7 +59,7 @@ body {
   float: left;
   padding: 0;
   position: relative;
-  border: solid rgb(196, 196, 196) 3px;
+
 }
 
 .movieInfo {
@@ -79,12 +79,13 @@ body {
 
 .generalStats {
   margin-bottom: 5px;
-  border: solid lightblue 2px;
+
 }
 
 .ratings {
   margin-bottom: 10px;
-  border: solid lightblue 2px;
+
+  display: flex;
 }
 
 .stat {
@@ -114,7 +115,7 @@ body {
 .starzone {
   margin-right: 27px;
   height: 13px;
-  border: solid yellow 1px;
+
   display: inline-flex;
   font-size: 100%;
 
@@ -133,5 +134,29 @@ body {
   background-image: url(https://www.vudu.com/bluesteel/images/Star_full.svg);
   background-repeat: no-repeat;
   height:13px;
+}
 
+.starnum {
+  margin-left: 4px;
+  letter-spacing: .05em;
+  font-size: 13px;
+  line-height: 13px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+}
+
+.tomato {
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  margin-right: 15px;
+  padding-left: 16px;
+  font-size: 13px;
+  height: 13px;
+  display: inline-flex;
+  font-weight: 300;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.rtzone {
+  line-height: 13px;
 }
