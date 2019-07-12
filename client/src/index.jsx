@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BackgroundImage from './component/background.jsx'
+import BackgroundImage from './component/background.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,16 +12,15 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    console.log('fetch random film')
+    console.log('fetch random film');
     this.fetchRandFeaturedFilm();
   }
 
   fetchRandFeaturedFilm(){
     fetch('/api/rand')
-    .then(res =>res.json())
+    .then(res =>res.json());
     .then((res) => {
-      console.log(res);
-      this.setState({film: res[0]})
+      this.setState({film: res[0]});
     });
   }
 

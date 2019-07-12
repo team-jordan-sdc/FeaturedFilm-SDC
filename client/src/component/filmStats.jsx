@@ -1,13 +1,13 @@
 import React from 'react';
 // TODO host tomatos on s3
-let num = 3.5;
+
 let starWidth = 14.6 * num;
 
 
 
 let divStyle={
   width: starWidth + 'px',
-}
+};
 
 
 var getTomatoStyle = function(rating){
@@ -21,7 +21,7 @@ var getTomatoStyle = function(rating){
 }
 
 let tomatoStyle={
-  'background-image': getTomatoStyle(90)
+  'background-image': getTomatoStyle(90);
 }
 
 
@@ -40,7 +40,7 @@ const MovieStats = (props) => (
       <div className="starzone">
         <div className="nostars">
           <div className="stars" style={
-            {width: (14.6 * (props.film.star_rating / 100)) + 'px',}
+            {width: (14.6 * (props.film.star_rating / 100)) + 'px'}
           }></div>
         </div>
         <div className="starnum">({props.film.star_rating_count})</div>
