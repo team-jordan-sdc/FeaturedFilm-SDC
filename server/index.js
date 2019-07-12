@@ -10,13 +10,18 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.status(200).end();
+
+app.get('/api/rand', (req, res) => {
+  let randNum = Math.floor(Math.random() * 99) + 1;
+  // console.log('index is: ' + randNum);
+  db.getFeaturedFilmById(randNum, (err, result) => {
+    res.status(200).send(result);
+  });
 });
 
 app.get('/api/featured', (req, res) => {
-  // set to 1 for now
-  db.getFeaturedFilmById(1, (err, result) => {
+  let index = req.body.index;
+  db.getFeaturedFilmById(index, (err, result) => {
     res.status(200).send(result);
   });
 });

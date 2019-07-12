@@ -4,7 +4,7 @@
   "description": "Module to display featured film on Moodu",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint server/",
+    "lint": "eslint tests/ server/",
     "seed": "node server/seeder.js",
     "start": "nodemon server/server.js",
     "test": "jest",
@@ -22,9 +22,12 @@
   "homepage": "https://github.com/fec1-arwen/FeaturedFilm#readme",
   "devDependencies": {
     "@babel/core": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-env": "^7.5.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.0",
@@ -41,8 +44,8 @@
     "lorem-ipsum": "^2.0.3",
     "mysql": "^2.12.0",
     "path": "^0.12.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "supertest": "^4.0.2"
   }
 }

@@ -10,6 +10,8 @@ const connection = mysql.createConnection({
   password: '',
 });
 
+const bgPath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+backgrounds/';
+const featurePath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+posters/';
 const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const lorem = new LoremIpsum({
@@ -49,8 +51,8 @@ db.connectAsync()
       sd_rent INT,
       hs_cost INT,
       sd_cost INT,
-      movie_shot_url VARCHAR(30),
-      movie_cover_url VARCHAR(30)
+      movie_shot_url VARCHAR(100),
+      movie_cover_url VARCHAR(100)
     )`))
   .then(() => db.queryAsync(`
     CREATE TABLE Wishlist (
@@ -59,6 +61,7 @@ db.connectAsync()
   )`))
   .then(() => {
     for (let x = 0; x < 100; x += 1) {
+      const movieId = Math.floor(Math.random() * 4) + 1;
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,
@@ -77,13 +80,13 @@ db.connectAsync()
         movie_shot_url,
         movie_cover_url
       ) VALUES (
-        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length) - 1]}',
-        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
-        '${tagsArray[Math.floor(Math.random() * tagsArray.length) - 1]}',
+        '${movieNamesArray[Math.floor(Math.random() * movieNamesArray.length)]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length)]}',
+        '${tagsArray[Math.floor(Math.random() * tagsArray.length)]}',
         ${1930 + Math.floor(Math.random() * 90)},
-        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length) - 1]}',
+        '${mpaaRatings[Math.floor(Math.random() * mpaaRatings.length)]}',
         ${Math.floor(Math.random() * 200)},
-        ${Math.random() * 5},
+        ${Math.random() * 500},
         ${Math.floor(Math.random() * 5000)},
         ${Math.floor(Math.random() * 100)},
         '${lorem.generateParagraphs(2)}',
@@ -91,8 +94,8 @@ db.connectAsync()
         ${Math.floor(Math.random() * 2000)},
         ${Math.floor(Math.random() * 2000)},
         ${Math.floor(Math.random() * 2000)},
-        'testURL',
-        'testURL2'
+        '${bgPath + movieId + '-1280a.jpg'}',
+        '${featurePath + movieId + '-168.jpeg'}'
       )`);
     }
   });
