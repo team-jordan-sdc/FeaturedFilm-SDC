@@ -1,13 +1,14 @@
 import React from 'react';
 import FilmInfo from './filminfo.jsx';
+import {Background, BlueGradient} from '../style.jsx';
 
 const BackgroundImage = (props) => (
-  <div className="backgroundImage" style={
+  <Background style={
     {backgroundImage: `url(${props.film.movie_shot_url})`}
   }>
     <FilmInfo film={props.film}/>
-    <div className="blueGradient"></div>
-  </div>
+    <BlueGradient />
+  </Background>
 )
 
 export default BackgroundImage;
