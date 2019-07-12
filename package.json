@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.5.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "enzyme": "^3.10.0",
+
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
@@ -46,6 +46,7 @@
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "enzyme": "^3.10.0",
   }
 }
