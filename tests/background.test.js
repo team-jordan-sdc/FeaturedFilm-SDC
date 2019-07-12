@@ -7,7 +7,7 @@ import dummyData from './dummyData.js'
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('enzyme test of background', () => {
-  test('renders', ()=>{
+  test('check if renders', ()=>{
     const wrapper = shallow(<backgroundImage />)
     expect(wrapper.exists()).toBe(true);
   });
