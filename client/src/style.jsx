@@ -54,6 +54,14 @@ const MovieThumbnail = styled.div`
   float: left;
 `;
 
+const Title = styled.div`
+  margin-bottom: 8px;
+  padding-right: 15px;
+  padding-right: 15px;
+  font-size: 28px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+`;
+
 export {
   Background,
   BlueGradient,
@@ -61,4 +69,5 @@ export {
   ContentZone,
   MovieThumbnail,
   MovieInfo,
+  Title,
 };
