@@ -1,13 +1,6 @@
 import React from 'react';
 // TODO host tomatos on s3
 
-let starWidth = 14.6 * num;
-
-
-
-let divStyle={
-  width: starWidth + 'px',
-};
 
 
 var getTomatoStyle = function(rating){
@@ -21,7 +14,7 @@ var getTomatoStyle = function(rating){
 }
 
 let tomatoStyle={
-  'background-image': getTomatoStyle(90);
+  'background-image': getTomatoStyle(90),
 }
 
 
