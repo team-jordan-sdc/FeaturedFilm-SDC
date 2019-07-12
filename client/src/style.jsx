@@ -25,7 +25,40 @@ const BlueGradient = styled.div`
   z-index: -1
 `;
 
+const FilmInfoZone = styled.div`
+  width: 700px;
+  height: 420px;
+  margin-left: 30px;
+  margin-top: 30px;
+
+  z-index: 2
+`;
+
+const ContentZone = styled.div`
+  padding-top: 25px;
+  width: 100%;
+  height: 362px;
+`;
+
+const MovieThumbnail = styled.div`
+  width: 168px;
+  height: 238px;
+  float: left;
+  padding: 0;
+  position: relative;
+`;
+
+ const MovieInfo = styled.div`
+  width:70%;
+  padding-left: 25px;
+  float: left;
+`;
+
 export {
   Background,
   BlueGradient,
+  FilmInfoZone,
+  ContentZone,
+  MovieThumbnail,
+  MovieInfo,
 };
