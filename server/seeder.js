@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 
 const bgPath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+backgrounds/';
-const featurePath ='https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+posters/';
+const featurePath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+posters/';
 const db = Promise.promisifyAll(connection, { multiArgs: true });
 
 const lorem = new LoremIpsum({
@@ -61,7 +61,7 @@ db.connectAsync()
   )`))
   .then(() => {
     for (let x = 0; x < 100; x += 1) {
-      let movieId = Math.floor(Math.random() * 4) +1;
+      const movieId = Math.floor(Math.random() * 4) + 1;
       db.queryAsync(`INSERT INTO Features (
         title,
         category_1,

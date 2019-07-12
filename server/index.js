@@ -12,15 +12,15 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 
 app.get('/api/rand', (req, res) => {
-  var randNum = Math.floor(Math.random() * 99) + 1;
-  console.log('index is: ' + randNum);
+  let randNum = Math.floor(Math.random() * 99) + 1;
+  // console.log('index is: ' + randNum);
   db.getFeaturedFilmById(randNum, (err, result) => {
     res.status(200).send(result);
   });
 });
 
 app.get('/api/featured', (req, res) => {
-  var index = req.body.index;
+  let index = req.body.index;
   db.getFeaturedFilmById(index, (err, result) => {
     res.status(200).send(result);
   });

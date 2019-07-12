@@ -4,7 +4,7 @@
   "description": "Module to display featured film on Moodu",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint server/",
+    "lint": "eslint tests/ server/",
     "seed": "node server/seeder.js",
     "start": "nodemon server/server.js",
     "test": "jest",
