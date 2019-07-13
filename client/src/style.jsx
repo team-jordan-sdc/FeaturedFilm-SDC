@@ -67,7 +67,7 @@ const MovieThumbnail = styled.div`
 `;
 
  const MovieInfo = styled.div`
-  width:70%;
+  width:72.4%;
   padding-left: 25px;
   float: left;
 `;
@@ -243,21 +243,49 @@ const DescriptionBox = styled.div`
   max-height: 90px;
   font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 250;
+  transition: 0.5s;
+`;
+
+
+const ToggleMore = styled.a`
+float: right;
+color: #00a0ff;
+font-size: 16px;
+opacity: 0.8;
+cursor: pointer;
+:hover {
+  opacity: 0.5;
+}
 `;
 
 const PurchasingZone = styled.div`
   height:50px;
+  float: left;
+  width: 105%;
 `;
 
-const ToggleMore = styled.a`
-  float: right;
-  color: #00a0ff;
-  font-size: 16px;
-  opacity: 0.8;
+const PurchasingButtonZone = styled.div`
+  width: 30%;
+  float: left;
+  padding-right: 10px;
+
+`;
+
+const PurchasingButton = styled.div`
+  width: 100%;
+  background-color: #007bc4;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 400;
   cursor: pointer;
-  :hover {
-    opacity: 0.5;
-  }
+  text-align: center;
+  font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  display: inline-block;
+  line-height: 42px;
+  transition: .25s;
 `;
 
 export {
@@ -289,5 +317,7 @@ export {
   DescriptionBox,
   DescriptionZone,
   PurchasingZone,
-  ToggleMore
+  ToggleMore,
+  PurchasingButtonZone,
+  PurchasingButton,
 };

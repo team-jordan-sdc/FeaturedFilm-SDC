@@ -4,7 +4,7 @@ import { DescriptionBox, ToggleMore } from '../style.jsx';
 const reducedDesc = function(desc){
   let descArr = desc.split('');
   for (var x = 210; x > 0; x -= 1) {
-    if(descArr[x] === ' '){
+    if (descArr[x] === ' ') {
        descArr = descArr.slice(0,x);
        x = -1;
     }
@@ -38,11 +38,11 @@ class Description extends React.Component {
   }
 
   returnDesc(){
-    let shortDesc = 'loading'
-    if(this.props.desc){
+    let shortDesc = 'loading';
+    if (this.props.desc) {
       shortDesc = reducedDesc(this.props.desc)
     }
-    if(this.checkState() === 'hide'){
+    if (this.checkState() === 'hide') {
       return (
       <div onClick={this.toggleDesc}>
         {shortDesc}

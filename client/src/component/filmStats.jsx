@@ -1,7 +1,9 @@
 import React from 'react';
 // TODO host tomatos on s3
 import Description from './description.jsx';
-import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone, PurchasingZone} from '../style.jsx';
+import PurchaseButtons from './purchaseButtons.jsx';
+
+import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone} from '../style.jsx';
 
 const MovieStats = (props) => (
   <div>
@@ -44,9 +46,7 @@ const MovieStats = (props) => (
       <Description desc={props.film.description}/>
     </DescriptionZone>
 
-    <PurchasingZone>
-
-    </PurchasingZone>
+    <PurchaseButtons />
   </div>
 );
 
