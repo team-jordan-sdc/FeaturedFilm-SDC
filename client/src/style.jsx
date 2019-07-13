@@ -226,6 +226,18 @@ const FancyDmaButton = styled(FancyButton)`
   align-items: center;
 `;
 
+const DescriptionZone = styled.div`
+  width: 448px;
+  float: left;
+  padding-right: 15px;
+`;
+
+const Description = styled.div`
+  overflow: hidden;
+  max-height: 90px;
+  font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 250;
+`;
 
 export {
   Background,
@@ -252,6 +264,8 @@ export {
   Redeem,
   DmaIcon,
   FancyButton,
-  FancyDmaButton
+  FancyDmaButton,
+  Description,
+  DescriptionZone
 
 };
