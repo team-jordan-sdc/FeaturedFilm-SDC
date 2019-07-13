@@ -1,5 +1,6 @@
 import React from 'react';
 // TODO host tomatos on s3
+import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum} from '../style.jsx';
 
 
 
@@ -21,30 +22,30 @@ let tomatoStyle={
 
 const MovieStats = (props) => (
   <div>
-    <div className="generalStats">
-      <span className="stat date">{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</span>
-      <span className="stat important">{props.film.mpaa_rating}</span>
-      <span className="stat important">{props.film.length} min</span>
-      <span className="stat important">CC</span>
-    </div>
+    <GeneralStats>
+      <Date>{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</Date>
+      <Important>{props.film.mpaa_rating}</Important>
+      <Important>{props.film.length} min</Important>
+      <Important>CC</Important>
+    </GeneralStats>
 
-    <div className="ratings">
+    <RatingZone>
 
-      <div className="starzone">
-        <div className="nostars">
+      <StarZone>
+        <NoStars>
           <div className="stars" style={
             {width: (14.6 * (props.film.star_rating / 100)) + 'px'}
           }></div>
-        </div>
-        <div className="starnum">({props.film.star_rating_count})</div>
-      </div>
+        </NoStars>
+        <StarNum>({props.film.star_rating_count})</StarNum>
+      </StarZone>
 
-      <div className="rtzone">
+      <TomatoZone>
         <div className="tomato" style={
           {'background-image': getTomatoStyle(props.film.rt_rating)}
         }>{props.film.rt_rating}%</div>
-      </div>
-    </div>
+      </TomatoZone>
+    </RatingZone>
 
     <div className="buttonzone">
         <div className="mybutton">
