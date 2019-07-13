@@ -1,6 +1,6 @@
 import React from 'react';
 // TODO host tomatos on s3
-import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum} from '../style.jsx';
+import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato} from '../style.jsx';
 
 
 
@@ -33,17 +33,12 @@ const MovieStats = (props) => (
 
       <StarZone>
         <NoStars>
-          <div className="stars" style={
-            {width: (14.6 * (props.film.star_rating / 100)) + 'px'}
-          }></div>
+          <Stars starWidth={props.film.star_rating} />
         </NoStars>
         <StarNum>({props.film.star_rating_count})</StarNum>
       </StarZone>
-
       <TomatoZone>
-        <div className="tomato" style={
-          {'background-image': getTomatoStyle(props.film.rt_rating)}
-        }>{props.film.rt_rating}%</div>
+        <Tomato tomato={props.film.rt_rating}>{props.film.rt_rating}%</Tomato>
       </TomatoZone>
     </RatingZone>
 

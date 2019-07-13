@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+var getTomatoStyle = function(rating) {
+  console.log(rating)
+  if(rating> 74){
+    console.log('super fresh');
+    return `https://www.vudu.com/bluesteel/images/Tomato_certified_fresh.svg`;
+  } else if(rating > 59){
+    console.log('fresh');
+    return `https://www.vudu.com/bluesteel/images/Tomato_fresh.svg`;
+  } else {
+    console.log('rotten');
+    return `https://www.vudu.com/bluesteel/images/Tomato_rotten.svg`;
+  }
+}
+
+var getStarWidth = function(num) {
+  return (14.6 * (num / 100)) + 'px'
+}
+
 const Background = styled.div`
   margin-left: -4.4%;
   margin-right: -4.4%;
@@ -62,6 +80,95 @@ const Title = styled.div`
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 `;
 
+const GeneralStats = styled.div`
+  margin-bottom: 5px;
+ `;
+
+const Ratings = styled.div`
+  margin-bottom: 10px;
+  display: flex;
+`;
+
+const Stat = styled.span`
+  margin-right: 10px;
+`;
+
+const Date = styled(Stat)`
+  line-height: 1.3;
+  font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 250;
+  text-transform: capitalize;
+`;
+
+const Important = styled(Stat)`
+  background-color: #b0bec5;
+  color: #000;
+  font-size: 12px;
+  border-radius: 7px;
+  height: 17px;
+  padding: 0 12px;
+  line-height: 20px;
+  display: inline-block;
+  font-weight: 800;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+`;
+
+const RatingZone = styled.div`
+  margin-bottom: 5px;
+  display: flex;
+`;
+
+const StarZone = styled.div`
+  margin-right: 27px;
+  height: 13px;
+  display: inline-flex;
+  font-size: 100%;
+`;
+
+const TomatoZone = styled.div`
+  line-height: 13px;
+`;
+
+const NoStars = styled.div`
+  display: inline-block;
+  width: 73px;
+  height: 13px;
+  background-size: 73px 13px;
+  background-repeat: no-repeat;
+  background-image: url(https://www.vudu.com/bluesteel/images/Star_empty.svg);
+`;
+
+const StarNum = styled.div`
+  margin-left: 4px;
+  letter-spacing: .05em;
+  font-size: 13px;
+  line-height: 13px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+`;
+
+const Stars = styled.div`
+  width: ${props => getStarWidth(props.starWidth)};
+  background-image: url(https://www.vudu.com/bluesteel/images/Star_full.svg);
+  background-repeat: no-repeat;
+  height:13px;
+`;
+
+const Tomato = styled.div`
+  background-image: url(${props => getTomatoStyle(props.tomato)});
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  margin-right: 15px;
+  padding-left: 16px;
+  font-size: 13px;
+  height: 13px;
+  display: inline-flex;
+  font-weight: 300;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+`;
+
+
+
 export {
   Background,
   BlueGradient,
@@ -70,4 +177,16 @@ export {
   MovieThumbnail,
   MovieInfo,
   Title,
+  GeneralStats,
+  Ratings,
+  Date,
+  Important,
+  StarZone,
+  TomatoZone,
+  RatingZone,
+  NoStars,
+  StarNum,
+  Stars,
+  Tomato
+
 };
