@@ -119,6 +119,7 @@ const RatingZone = styled.div`
 `;
 
 const StarZone = styled.div`
+
   margin-right: 27px;
   height: 13px;
   display: inline-flex;
@@ -130,12 +131,16 @@ const TomatoZone = styled.div`
 `;
 
 const NoStars = styled.div`
+  cursor: pointer;
   display: inline-block;
   width: 73px;
   height: 13px;
   background-size: 73px 13px;
   background-repeat: no-repeat;
   background-image: url(https://www.vudu.com/bluesteel/images/Star_empty.svg);
+  :hover {
+    opacity: 0.7;
+  }
 `;
 
 const StarNum = styled.div`
@@ -197,6 +202,7 @@ const DmaIcon = styled.div`
 `;
 
 const FancyButton = styled.button`
+  cursor: pointer;
   background: transparent;
   border: solid #007bc4 2px;
   height: inherit;
@@ -227,14 +233,13 @@ const FancyDmaButton = styled(FancyButton)`
 `;
 
 const DescriptionZone = styled.div`
-  width: 448px;
+  width: 412.5px;
   float: left;
   padding-right: 15px;
   margin-bottom: 50px;
 `;
 
 const DescriptionBox = styled.div`
-  overflow: hidden;
   max-height: 90px;
   font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 250;
@@ -242,6 +247,17 @@ const DescriptionBox = styled.div`
 
 const PurchasingZone = styled.div`
   height:50px;
+`;
+
+const ToggleMore = styled.a`
+  float: right;
+  color: #00a0ff;
+  font-size: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
 export {
@@ -273,5 +289,5 @@ export {
   DescriptionBox,
   DescriptionZone,
   PurchasingZone,
-
+  ToggleMore
 };

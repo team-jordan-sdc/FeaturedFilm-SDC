@@ -41,11 +41,7 @@ const MovieStats = (props) => (
       </ButtonZone>
 
     <DescriptionZone>
-      <DescriptionBox>
-
-        <Description desc={props.film.description}/>
-        <span> ... </span>
-      </DescriptionBox>
+      <Description desc={props.film.description}/>
     </DescriptionZone>
 
     <PurchasingZone>

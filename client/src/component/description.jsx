@@ -1,4 +1,5 @@
 import React from 'react';
+import { DescriptionBox, ToggleMore } from '../style.jsx';
 
 const reducedDesc = function(desc){
   let descArr = desc.split('');
@@ -8,7 +9,6 @@ const reducedDesc = function(desc){
        x = -1;
     }
   }
-
   return descArr.join('');
 }
 
@@ -18,8 +18,6 @@ class Description extends React.Component {
     super(props);
     this.state = {
       descState: 'hide',
-      shortDesc:'',
-      longDesc:'',
     }
 
     this.toggleDesc = this.toggleDesc.bind(this);
@@ -28,9 +26,11 @@ class Description extends React.Component {
   }
 
   toggleDesc(){
-    console.log('test')
-    console.log(this.props.desc);
-    console.log(reducedDesc(this.props.desc));
+    if(this.state.descState === 'hide'){
+      this.setState({descState: 'show'});
+    } else {
+      this.setState({descState: 'hide'});
+    }
   }
 
   checkState(){
@@ -38,24 +38,34 @@ class Description extends React.Component {
   }
 
   returnDesc(){
+    let shortDesc = 'loading'
+    if(this.props.desc){
+      shortDesc = reducedDesc(this.props.desc)
+    }
     if(this.checkState() === 'hide'){
       return (
-      <p> testing some cool stuff </p>
+      <div onClick={this.toggleDesc}>
+        {shortDesc}
+        <span> ... </span>
+        <ToggleMore > More </ToggleMore>
+      </div>
       );
     } else {
       return (
-        <p> we got a problem </p>
+        <div onClick={this.toggleDesc}>
+           {this.props.desc}
+           <ToggleMore> Less </ToggleMore>
+        </div>
       );
     }
   }
 
   render(){
     return(
-      <div>
+      <DescriptionBox>
         {this.returnDesc()}
-        <a onClick={this.toggleDesc}> click me </a>
-      </div>
-    )
+      </DescriptionBox>
+    );
   }
 }
 
