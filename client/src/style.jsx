@@ -230,13 +230,18 @@ const DescriptionZone = styled.div`
   width: 448px;
   float: left;
   padding-right: 15px;
+  margin-bottom: 50px;
 `;
 
-const Description = styled.div`
+const DescriptionBox = styled.div`
   overflow: hidden;
   max-height: 90px;
   font-family: SystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 250;
+`;
+
+const PurchasingZone = styled.div`
+  height:50px;
 `;
 
 export {
@@ -265,7 +270,8 @@ export {
   DmaIcon,
   FancyButton,
   FancyDmaButton,
-  Description,
-  DescriptionZone
+  DescriptionBox,
+  DescriptionZone,
+  PurchasingZone,
 
 };
