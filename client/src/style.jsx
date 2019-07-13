@@ -271,6 +271,8 @@ const PurchasingButtonZone = styled.div`
 
 `;
 
+
+
 const PurchasingButton = styled.div`
   width: 100%;
   background-color: #007bc4;
@@ -286,7 +288,64 @@ const PurchasingButton = styled.div`
   display: inline-block;
   line-height: 42px;
   transition: .25s;
+
+
 `;
+
+const RentButton = styled(PurchasingButton)`
+
+`;
+
+const RentText = styled.span`
+  font-size: 18px;
+  font-weight: 400;
+  transition: .25s;
+`;
+
+const RentPrice = styled.span`
+  font-size: 18px;
+  font-weight: 400;
+  transition: .25s;
+`;
+
+const RentListenZone = styled.div`
+  &:hover ${RentButton} {
+    border-radius: 5px 5px 0 0;
+  }
+  &:hover ${RentPrice} {
+    opacity: 0;
+  }
+
+  &:hover ${RentText} {
+    position: absolute;
+  }
+
+`;
+
+
+
+const RentExpanded = styled(PurchasingButton)`
+  border-radius: 0 0 5px 5px;
+  height: 80px;
+  background-color: black;
+  overflow: hidden;
+`;
+
+const PurchaseOption = styled.div`
+  transition: .25s;
+  width: 100%;
+  height: 49%;
+  background-color: #005885;
+  margin-top: 1px;
+  :hover{
+    background-color: #007bc4;
+  }
+`;
+
+
+
+
+
 
 export {
   Background,
@@ -320,4 +379,10 @@ export {
   ToggleMore,
   PurchasingButtonZone,
   PurchasingButton,
+  RentButton,
+  RentExpanded,
+  PurchaseOption,
+  RentListenZone,
+  RentPrice,
+  RentText,
 };
