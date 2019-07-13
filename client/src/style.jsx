@@ -167,6 +167,64 @@ const Tomato = styled.div`
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 `;
 
+const ButtonZone = styled.div`
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  width: 448px;
+  float:left;
+  height: 30;
+`;
+
+const MyButton = styled.div`
+  width: 33.3%;
+`;
+
+const WishList = styled(MyButton)`
+  padding-left: 15px;
+`;
+
+const Redeem = styled(MyButton)`
+  padding-left: 15px;
+`;
+
+const DmaIcon = styled.div`
+  margin-left: 5px;
+  background-image: url(https://www.vudu.com/bluesteel/images/dma_small.svg);
+  width: 17px;
+  height: 17px;
+  background-size: 100%;
+`;
+
+const FancyButton = styled.button`
+  background: transparent;
+  border: solid #007bc4 2px;
+  height: inherit;
+  font-size: 15px;
+  line-height: 25px;
+  border-radius: 6px;
+  color: white;
+  overflow: hidden;
+  width:100%;
+  text-align: center;
+  outline: none;
+  :hover {
+    opacity: 0.7;
+    color: #d8d8d8;
+  }
+
+  :active {
+    color: #d8d8d8;
+    border-color: #0068a5;
+  }
+
+`;
+
+const FancyDmaButton = styled(FancyButton)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 
 export {
@@ -187,6 +245,13 @@ export {
   NoStars,
   StarNum,
   Stars,
-  Tomato
+  Tomato,
+  ButtonZone,
+  MyButton,
+  WishList,
+  Redeem,
+  DmaIcon,
+  FancyButton,
+  FancyDmaButton
 
 };

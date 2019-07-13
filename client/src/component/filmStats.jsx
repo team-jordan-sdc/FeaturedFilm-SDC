@@ -1,24 +1,6 @@
 import React from 'react';
 // TODO host tomatos on s3
-import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato} from '../style.jsx';
-
-
-
-var getTomatoStyle = function(rating){
-  if(rating> 74){
-    return `url(https://www.vudu.com/bluesteel/images/Tomato_certified_fresh.svg)`;
-  } else if(rating > 59){
-    return `url(https://www.vudu.com/bluesteel/images/Tomato_fresh.svg)`;
-  } else {
-    return `url(https://www.vudu.com/bluesteel/images/Tomato_rotten.svg)`;
-  }
-}
-
-let tomatoStyle={
-  'background-image': getTomatoStyle(90),
-}
-
-
+import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton} from '../style.jsx';
 
 const MovieStats = (props) => (
   <div>
@@ -42,20 +24,20 @@ const MovieStats = (props) => (
       </TomatoZone>
     </RatingZone>
 
-    <div className="buttonzone">
-        <div className="mybutton">
-          <button className="fancybutton">Trailer</button>
-        </div>
-        <div id="wishlist" className="mybutton">
-          <button className="fancybutton">+Wishlist</button>
-        </div>
-        <div id="redeem" className="mybutton">
-          <button className="fancybutton dma_zone">
+    <ButtonZone>
+        <MyButton>
+          <FancyButton>Trailer</FancyButton>
+        </MyButton>
+        <WishList>
+          <FancyButton>+Wishlist</FancyButton>
+        </WishList>
+        <Redeem>
+          <FancyDmaButton>
             <div>Redeem</div>
-            <div className="dma_icon"></div>
-          </button>
-        </div>
-      </div>
+            <DmaIcon />
+          </FancyDmaButton>
+        </Redeem>
+      </ButtonZone>
 
     <div className="description_zone">
       <div className="description">
