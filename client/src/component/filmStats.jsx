@@ -46,7 +46,7 @@ const MovieStats = (props) => (
       <Description desc={props.film.description}/>
     </DescriptionZone>
 
-    <PurchaseButtons />
+    <PurchaseButtons film={props.film}/>
   </div>
 );
 

@@ -6,10 +6,16 @@ class PurchaseButtons extends React.Component {
     super(props);
     this.state = {
       rent: 'NoShow',
+      rentText: 0,
+      ownText: 0,
     }
-
+    this.myInput = React.createRef();
     this.toggleRent = this.toggleRent.bind(this);
     this.displayRent = this.displayRent.bind(this);
+  }
+
+  componentDidMount(){
+    this.setState({ rentText: this.myInput.current.offsetWidth })
   }
 
   toggleRent(){
@@ -24,32 +30,35 @@ class PurchaseButtons extends React.Component {
     if (this.state.rent === 'show') {
       return (
         <RentExpanded >
-          <PurchaseOption> 100</PurchaseOption>
-          <PurchaseOption>200</PurchaseOption>
+          <PurchaseOption>SD ${this.parseCost(this.props.film.sd_rent)}</PurchaseOption>
+          <PurchaseOption>HD ${this.parseCost(this.props.film.hd_rent)}</PurchaseOption>
         </RentExpanded>
       );
     }
   }
 
-
+  parseCost(num){
+    return Number.parseFloat(num/100).toFixed(2);
+  }
 
   render(){
     return(
       <PurchasingZone>
         <PurchasingButtonZone >
-          <RentListenZone onMouseEnter={() => this.toggleRent()} onMouseLeave={() => this.toggleRent()}>
+          <RentListenZone rentSize={this.state.rentText / 2} onMouseEnter={() => this.toggleRent()} onMouseLeave={() => this.toggleRent()}>
             <RentButton >
-              <RentText>Rent</RentText>
-              <RentPrice> $2.99</RentPrice>
+              <RentText>{'Rent '}</RentText>
+              <RentPrice ref={this.myInput}>${this.parseCost(this.props.film.sd_rent)}</RentPrice>
             </RentButton>
             {this.displayRent()}
           </RentListenZone>
         </PurchasingButtonZone>
+
         <PurchasingButtonZone>
           <PurchasingButton>Buy</PurchasingButton>
         </PurchasingButtonZone>
+
         <PurchasingButtonZone>
-          <PurchasingButton>Buy DVD</PurchasingButton>
         </PurchasingButtonZone>
 
       </PurchasingZone>

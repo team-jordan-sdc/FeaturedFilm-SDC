@@ -296,16 +296,23 @@ const RentButton = styled(PurchasingButton)`
 
 `;
 
-const RentText = styled.span`
+const RentText = styled.div`
   font-size: 18px;
   font-weight: 400;
   transition: .25s;
+  display: inline-block;
+  vertical-align: top;
 `;
 
-const RentPrice = styled.span`
+const RentPrice = styled.div`
+  margin-left: 5px;
   font-size: 18px;
   font-weight: 400;
+  visibility: visible;
+  opacity: 1;
   transition: .25s;
+  display: inline-block;
+  vertical-align: top;
 `;
 
 const RentListenZone = styled.div`
@@ -313,12 +320,15 @@ const RentListenZone = styled.div`
     border-radius: 5px 5px 0 0;
   }
   &:hover ${RentPrice} {
+    visibility: hidden;
     opacity: 0;
+
+  }
+  &:hover ${RentText} {
+    transform: translateX(${props => props.rentSize}px);
   }
 
-  &:hover ${RentText} {
-    position: absolute;
-  }
+
 
 `;
 
