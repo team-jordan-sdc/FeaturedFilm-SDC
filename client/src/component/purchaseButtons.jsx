@@ -1,21 +1,24 @@
 import React from 'react';
-import { PurchasingZone, PurchasingButtonZone, PurchasingButton, RentButton, RentExpanded, PurchaseOption, RentListenZone, RentPrice, RentText } from  '../style.jsx';
+import { PurchasingZone, PurchasingButtonZone, PurchasingButton, RentButton, RentExpanded, PurchaseOption, RentListenZone, RentPrice, RentText, OwnButton, OwnListenZone, OwnPrice, OwnText } from  '../style.jsx';
 
 class PurchaseButtons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       rent: 'NoShow',
+      own: 'NoShow',
       rentText: 0,
       ownText: 0,
     }
-    this.myInput = React.createRef();
+    this.myRentInput = React.createRef();
+    this.myOwnInput = React.createRef();
     this.toggleRent = this.toggleRent.bind(this);
     this.displayRent = this.displayRent.bind(this);
   }
 
   componentDidMount(){
-    this.setState({ rentText: this.myInput.current.offsetWidth })
+    this.setState({ rentText: this.myRentInput.current.offsetWidth });
+    this.setState({ ownText: this.myOwnInput.current.offsetWidth });
   }
 
   toggleRent(){
@@ -23,6 +26,14 @@ class PurchaseButtons extends React.Component {
       this.setState({ rent: 'show' });
     } else {
       this.setState({ rent: 'NoShow' });
+    }
+  }
+
+  ToggleOwn(){
+    if (this.state.own === 'NoShow') {
+      this.setState({ own: 'show' });
+    } else {
+      this.setState({ own: 'NoShow' });
     }
   }
 
@@ -48,14 +59,19 @@ class PurchaseButtons extends React.Component {
           <RentListenZone rentSize={this.state.rentText / 2} onMouseEnter={() => this.toggleRent()} onMouseLeave={() => this.toggleRent()}>
             <RentButton >
               <RentText>{'Rent '}</RentText>
-              <RentPrice ref={this.myInput}>${this.parseCost(this.props.film.sd_rent)}</RentPrice>
+              <RentPrice ref={this.myRentInput}>${this.parseCost(this.props.film.sd_rent)}</RentPrice>
             </RentButton>
             {this.displayRent()}
           </RentListenZone>
         </PurchasingButtonZone>
 
         <PurchasingButtonZone>
-          <PurchasingButton>Buy</PurchasingButton>
+          <OwnListenZone ownSize={this.state.ownText / 2} onMouseEnter={() => this.toggleOwn()} onMouseLeave={() => this.toggleOwn()}>
+            <OwnButton>
+              <OwnText>{'Own '}</OwnText>
+              <OwnPrice ref={this.myOwnInput}>${this.parseCost(this.props.film.sd_cost)}</OwnPrice>
+            </OwnButton>
+          </OwnListenZone>
         </PurchasingButtonZone>
 
         <PurchasingButtonZone>

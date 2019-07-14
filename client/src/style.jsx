@@ -327,9 +327,6 @@ const RentListenZone = styled.div`
   &:hover ${RentText} {
     transform: translateX(${props => props.rentSize}px);
   }
-
-
-
 `;
 
 
@@ -352,10 +349,42 @@ const PurchaseOption = styled.div`
   }
 `;
 
+const OwnButton = styled(PurchasingButton)`
 
+`;
 
+const OwnText = styled.div`
+  font-size: 18px;
+  font-weight: 400;
+  transition: .25s;
+  display: inline-block;
+  vertical-align: top;
+`;
 
+const OwnPrice = styled.div`
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: 400;
+  visibility: visible;
+  opacity: 1;
+  transition: .25s;
+  display: inline-block;
+  vertical-align: top;
+`;
 
+const OwnListenZone = styled.div`
+  &:hover ${OwnButton} {
+    border-radius: 5px 5px 0 0;
+  }
+  &:hover ${OwnPrice} {
+    visibility: hidden;
+    opacity: 0;
+
+  }
+  &:hover ${OwnText} {
+    transform: translateX(${props => props.ownSize}px);
+  }
+`;
 
 export {
   Background,
@@ -395,4 +424,8 @@ export {
   RentListenZone,
   RentPrice,
   RentText,
+  OwnButton,
+  OwnListenZone,
+  OwnPrice,
+  OwnText,
 };
