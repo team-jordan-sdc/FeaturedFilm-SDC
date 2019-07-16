@@ -3,12 +3,12 @@ import React from 'react';
 import Description from './description.jsx';
 import PurchaseButtons from './purchaseButtons.jsx';
 
-import {GeneralStats, RatingZone, Date, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone} from '../style.jsx';
+import {GeneralStats, RatingZone, MyDate, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone} from '../style.jsx';
 
 const MovieStats = (props) => (
   <div>
     <GeneralStats>
-      <Date>{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</Date>
+      <MyDate>{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</MyDate>
       <Important>{props.film.mpaa_rating}</Important>
       <Important>{props.film.length} min</Important>
       <Important>CC</Important>
