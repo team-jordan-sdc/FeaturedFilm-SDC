@@ -1,22 +1,21 @@
 import React from 'react';
 import MovieTitle from './movieTitle.jsx';
-import MovieStats from './filmStats.jsx'
+import MovieStats from './filmStats.jsx';
+import { FilmInfoZone, ContentZone, MovieThumbnail, MovieInfo} from '../style.jsx';
 
 const FilmInfo = (props) => (
   <div>
-    <div className="filmInfo">
-      <div className="contentZone">
-        <div className="movieThumbnail">
+    <FilmInfoZone>
+      <ContentZone>
+        <MovieThumbnail>
           <img src={props.film.movie_cover_url} alt="movie image goes here"></img>
-        </div>
-        <div className="movieInfo">
+        </MovieThumbnail>
+        <MovieInfo>
           <MovieTitle title={props.film.title} />
           <MovieStats film={props.film}/>
-        </div>
-
-
-      </div>
-    </div>
+        </MovieInfo>
+      </ContentZone>
+    </FilmInfoZone>
   </div>
 );
 
