@@ -1,5 +1,4 @@
 import React from 'react';
-// TODO host tomatos on s3
 import Description from './description.jsx';
 import PurchaseButtons from './purchaseButtons.jsx';
 

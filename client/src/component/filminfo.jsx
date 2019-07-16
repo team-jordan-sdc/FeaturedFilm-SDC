@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieTitle from './movieTitle.jsx';
-import MovieStats from './filmStats.jsx'
+import MovieStats from './filmStats.jsx';
 import { FilmInfoZone, ContentZone, MovieThumbnail, MovieInfo} from '../style.jsx';
 
 const FilmInfo = (props) => (
