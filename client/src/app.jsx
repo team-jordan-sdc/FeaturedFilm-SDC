@@ -11,7 +11,6 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    console.log('fetch random film');
     this.fetchRandFeaturedFilm();
   }
 

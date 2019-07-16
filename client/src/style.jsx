@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
 var getTomatoStyle = function(rating) {
-  console.log(rating)
   if(rating> 74){
-    console.log('super fresh');
+
     return `https://www.vudu.com/bluesteel/images/Tomato_certified_fresh.svg`;
   } else if(rating > 59){
-    console.log('fresh');
     return `https://www.vudu.com/bluesteel/images/Tomato_fresh.svg`;
   } else {
-    console.log('rotten');
     return `https://www.vudu.com/bluesteel/images/Tomato_rotten.svg`;
   }
 }
