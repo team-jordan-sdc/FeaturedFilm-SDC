@@ -14,12 +14,12 @@ describe('tests for film info component', () => {
 
   test('check if image source changes', () => {
     const wrapper = shallow(<Filminfo film={dummyData} />);
-    expect(wrapper.find('.movieThumbnail').childAt(0).type()).toBe('img');
+    expect(wrapper.find('MovieThumbnail').childAt(0).type()).toBe('img');
   });
 
   test('check if image source changes', () => {
     const wrapper = shallow(<Filminfo film={dummyData} />);
-    expect(wrapper.find('.movieThumbnail').childAt(0).prop('src')).toBe(dummyData.movie_cover_url);
+    expect(wrapper.find('MovieThumbnail').childAt(0).prop('src')).toBe(dummyData.movie_cover_url);
   });
 
 });

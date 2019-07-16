@@ -14,6 +14,6 @@ describe('tests for title component', () => {
 
   test('check if title changes', () => {
     const wrapper = shallow(<MovieTitle title={dummyData.title} />);
-    expect(wrapper.find('.movieTitle').text()).toEqual('The Lord of the Rings: The Return of the King');
+    expect(wrapper.find('Title').text()).toEqual('The Lord of the Rings: The Return of the King');
   });
 });
