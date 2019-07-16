@@ -17,7 +17,7 @@ class App extends React.Component {
 
   fetchRandFeaturedFilm(){
     fetch('/api/rand')
-    .then(res =>res.json())
+    .then(res => res.json())
     .then((res) => {
       this.setState({film: res[0]});
     });
