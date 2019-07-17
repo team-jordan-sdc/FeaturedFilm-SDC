@@ -1,16 +1,17 @@
 import React from 'react';
 import { DescriptionBox, ToggleMore } from '../style.jsx';
 
-const reducedDesc = function(desc){
+// splits description @ the first ' ' before 210 character limit
+const reducedDesc = function(desc) {
   let descArr = desc.split('');
-  for (var x = 210; x > 0; x -= 1) {
+  for (let x = 210; x > 0; x -= 1) {
     if (descArr[x] === ' ') {
-       descArr = descArr.slice(0,x);
-       x = -1;
+      descArr = descArr.slice(0, x);
+      x = -1;
     }
   }
   return descArr.join('');
-}
+};
 
 
 class Description extends React.Component {
@@ -18,50 +19,50 @@ class Description extends React.Component {
     super(props);
     this.state = {
       descState: 'hide',
-    }
+    };
 
     this.toggleDesc = this.toggleDesc.bind(this);
     this.checkState = this.checkState.bind(this);
     this.returnDesc = this.returnDesc.bind(this);
   }
 
-  toggleDesc(){
-    if(this.state.descState === 'hide'){
-      this.setState({descState: 'show'});
+  toggleDesc() {
+    if (this.state.descState === 'hide') {
+      this.setState( {descState: 'show'} );
     } else {
-      this.setState({descState: 'hide'});
+      this.setState( {descState: 'hide'} );
     }
   }
 
-  checkState(){
+  checkState() {
     return this.state.descState;
   }
 
-  returnDesc(){
+  returnDesc() {
     let shortDesc = 'loading';
     if (this.props.desc) {
-      shortDesc = reducedDesc(this.props.desc)
+      shortDesc = reducedDesc(this.props.desc);
     }
     if (this.checkState() === 'hide') {
       return (
-      <div onClick={this.toggleDesc}>
-        {shortDesc}
-        <span> ... </span>
-        <ToggleMore > More </ToggleMore>
-      </div>
+        <div onClick={this.toggleDesc}>
+          {shortDesc}
+          <span> ... </span>
+          <ToggleMore> More </ToggleMore>
+        </div>
       );
     } else {
       return (
         <div onClick={this.toggleDesc}>
-           {this.props.desc}
-           <ToggleMore> Less </ToggleMore>
+          {this.props.desc}
+          <ToggleMore> Less </ToggleMore>
         </div>
       );
     }
   }
 
   render(){
-    return(
+    return (
       <DescriptionBox>
         {this.returnDesc()}
       </DescriptionBox>

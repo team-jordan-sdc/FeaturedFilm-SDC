@@ -2,7 +2,7 @@ import React from 'react';
 import Description from './description.jsx';
 import PurchaseButtons from './purchaseButtons.jsx';
 
-import {GeneralStats, RatingZone, MyDate, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone} from '../style.jsx';
+import { GeneralStats, RatingZone, MyDate, Important, TomatoZone, StarZone, NoStars, StarNum, Stars, Tomato, ButtonZone, MyButton, WishList, Redeem, DmaIcon, FancyButton, FancyDmaButton, DescriptionBox, DescriptionZone } from '../style.jsx';
 
 const MovieStats = (props) => (
   <div>
@@ -27,19 +27,19 @@ const MovieStats = (props) => (
     </RatingZone>
 
     <ButtonZone>
-        <MyButton>
-          <FancyButton>Trailer</FancyButton>
-        </MyButton>
-        <WishList>
-          <FancyButton>+Wishlist</FancyButton>
-        </WishList>
-        <Redeem>
-          <FancyDmaButton>
-            <div>Redeem</div>
-            <DmaIcon />
-          </FancyDmaButton>
-        </Redeem>
-      </ButtonZone>
+      <MyButton>
+        <FancyButton>Trailer</FancyButton>
+      </MyButton>
+      <WishList>
+        <FancyButton>+Wishlist</FancyButton>
+      </WishList>
+      <Redeem>
+        <FancyDmaButton>
+          <div>Redeem</div>
+          <DmaIcon />
+        </FancyDmaButton>
+      </Redeem>
+    </ButtonZone>
 
     <DescriptionZone>
       <Description desc={props.film.description}/>
