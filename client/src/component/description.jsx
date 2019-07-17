@@ -1,6 +1,7 @@
 import React from 'react';
 import { DescriptionBox, ToggleMore } from '../style.jsx';
 
+// splits description @ the first ' ' before 210 character limit
 const reducedDesc = function(desc){
   let descArr = desc.split('');
   for (var x = 210; x > 0; x -= 1) {
@@ -10,7 +11,7 @@ const reducedDesc = function(desc){
     }
   }
   return descArr.join('');
-}
+};
 
 
 class Description extends React.Component {
