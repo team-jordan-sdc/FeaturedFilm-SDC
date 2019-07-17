@@ -14,6 +14,8 @@ class PurchaseButtons extends React.Component {
     this.myOwnInput = React.createRef();
     this.toggleRent = this.toggleRent.bind(this);
     this.displayRent = this.displayRent.bind(this);
+    this.toggleOwn = this.toggleOwn.bind(this);
+    this.displayOwn = this.displayOwn.bind(this);
   }
 
   componentDidMount(){
@@ -29,7 +31,7 @@ class PurchaseButtons extends React.Component {
     }
   }
 
-  ToggleOwn(){
+  toggleOwn(){
     if (this.state.own === 'NoShow') {
       this.setState({ own: 'show' });
     } else {
@@ -43,6 +45,17 @@ class PurchaseButtons extends React.Component {
         <RentExpanded >
           <PurchaseOption>SD ${this.parseCost(this.props.film.sd_rent)}</PurchaseOption>
           <PurchaseOption>HD ${this.parseCost(this.props.film.hd_rent)}</PurchaseOption>
+        </RentExpanded>
+      );
+    }
+  }
+
+  displayOwn(){
+    if (this.state.own === 'show') {
+      return (
+        <RentExpanded >
+          <PurchaseOption>SD ${this.parseCost(this.props.film.sd_cost)}</PurchaseOption>
+          <PurchaseOption>HD ${this.parseCost(this.props.film.hs_cost)}</PurchaseOption>
         </RentExpanded>
       );
     }
@@ -71,6 +84,7 @@ class PurchaseButtons extends React.Component {
               <OwnText>{'Own '}</OwnText>
               <OwnPrice ref={this.myOwnInput}>${this.parseCost(this.props.film.sd_cost)}</OwnPrice>
             </OwnButton>
+            {this.displayOwn()}
           </OwnListenZone>
         </PurchasingButtonZone>
 
