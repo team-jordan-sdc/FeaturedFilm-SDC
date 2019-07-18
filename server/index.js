@@ -19,8 +19,8 @@ app.get('/api/rand', (req, res) => {
 });
 
 app.get('/api/featured', (req, res) => {
-  let index = req.query.index;
-  db.getFeaturedFilmById(index, (err, result) => {
+  let id = req.query.id;
+  db.getFeaturedFilmById(id, (err, result) => {
     res.status(200).send(result);
   });
 });

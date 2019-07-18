@@ -13,17 +13,17 @@ class App extends React.Component {
 
   componentDidMount(){
     let urlQuery = new URLSearchParams(window.location.search);
-    let index = urlQuery.get('index');
-    if(index){
-      this.fetchFeaturedFilm(index);
+    let id = urlQuery.get('id');
+    if(id){
+      this.fetchFeaturedFilm(id);
     } else {
       this.fetchRandFeaturedFilm();
     }
 
   }
 
-  fetchFeaturedFilm(index){
-    fetch(`/api/featured?index=${index}`)
+  fetchFeaturedFilm(id){
+    fetch(`/api/featured?id=${id}`)
     .then(res => res.json())
     .then((res) => {
       this.setState({film: res[0]});
