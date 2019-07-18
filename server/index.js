@@ -7,10 +7,10 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+// app.use(bodyparser.json());
+// app.use(bodyparser.urlencoded({ extended: true }));
 
-
+// no longer used
 app.get('/api/rand', (req, res) => {
   let randNum = Math.floor(Math.random() * 99) + 1;
   db.getFeaturedFilmById(randNum, (err, result) => {
