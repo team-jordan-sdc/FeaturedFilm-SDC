@@ -7,7 +7,6 @@ class App extends React.Component {
     this.state = {
       film: {},
     }
-    this.fetchRandFeaturedFilm = this.fetchRandFeaturedFilm.bind(this);
     this.fetchFeaturedFilm = this.fetchFeaturedFilm.bind(this);
   }
 
@@ -17,7 +16,7 @@ class App extends React.Component {
     if(id){
       this.fetchFeaturedFilm(id);
     } else {
-      this.fetchRandFeaturedFilm();
+      this.fetchFeaturedFilm(1);
     }
 
   }
@@ -29,15 +28,6 @@ class App extends React.Component {
       this.setState({film: res[0]});
     });
   }
-
-  fetchRandFeaturedFilm(){
-    fetch('/api/rand')
-    .then(res => res.json())
-    .then((res) => {
-      this.setState({film: res[0]});
-    });
-  }
-
 
   render(){
     return(
