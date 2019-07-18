@@ -8,10 +8,26 @@ class App extends React.Component {
       film: {},
     }
     this.fetchRandFeaturedFilm = this.fetchRandFeaturedFilm.bind(this);
+    this.fetchFeaturedFilm = this.fetchFeaturedFilm.bind(this);
   }
 
   componentDidMount(){
-    this.fetchRandFeaturedFilm();
+    let urlQuery = new URLSearchParams(window.location.search);
+    let index = urlQuery.get('index');
+    if(index){
+      this.fetchFeaturedFilm(index);
+    } else {
+      this.fetchRandFeaturedFilm();
+    }
+
+  }
+
+  fetchFeaturedFilm(index){
+    fetch(`/api/featured?index=${index}`)
+    .then(res => res.json())
+    .then((res) => {
+      this.setState({film: res[0]});
+    });
   }
 
   fetchRandFeaturedFilm(){
