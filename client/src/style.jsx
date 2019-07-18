@@ -25,6 +25,10 @@ const Background = styled.div`
   background-color: #051c2b;
   position: relative;
 
+  font-size: 17px;
+  color: aliceblue;
+  line-height: 1.3;
+
   z-index: 0;
 `;
 Background.displayName = 'Background';
