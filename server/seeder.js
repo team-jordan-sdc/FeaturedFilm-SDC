@@ -6,9 +6,14 @@ const { movies } = require('./movieList.js');
 
 const database = 'featurefilm';
 const connection = mysql.createConnection({
-  user: 'root',
-  password: '',
+    host: 'mycoolsql',
+    port: '3306',
+    user: 'root',
+    password: 'sheep',
 });
+
+
+
 
 const bgPath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+backgrounds/';
 const featurePath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+posters/';
@@ -30,7 +35,8 @@ const movieNamesArray = movies.split('\n');
 const tagsArray = ['comedy', 'horror', 'drama', 'holiday special', 'action', 'adventure', 'scifi', 'fantasy', 'thriller', 'animated'];
 const mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
 
-db.connectAsync()
+
+connection.connectAsync()
   .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${database}`))
   .then(() => db.queryAsync(`CREATE DATABASE ${database}`))
   .then(() => db.queryAsync(`USE ${database}`))
