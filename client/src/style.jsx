@@ -15,6 +15,13 @@ var getStarWidth = function(num) {
   return (14.6 * (num / 100)) + 'px'
 }
 
+const FauxBody = styled.div`
+  width: 100%;
+  max-width: 1254px;
+  min-width: 768px;
+  margin: auto;
+`;
+
 const Background = styled.div`
   margin-left: -4.4%;
   margin-right: -4.4%;
@@ -455,4 +462,5 @@ export {
   OwnListenZone,
   OwnPrice,
   OwnText,
+  FauxBody
 };

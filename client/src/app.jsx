@@ -1,5 +1,6 @@
 import React from 'react';
 import BackgroundImage from './component/background.jsx';
+import { FauxBody } from './style.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,9 +32,9 @@ class App extends React.Component {
 
   render(){
     return(
-      <div>
+      <FauxBody>
         <BackgroundImage film={this.state.film}/>
-      </div>
+      </FauxBody>
     );
   }
 }
