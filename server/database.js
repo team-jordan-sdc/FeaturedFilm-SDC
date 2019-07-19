@@ -14,7 +14,7 @@ const connection = mysql.createConnection(loginInfo);
 const getFeaturedFilmById = (id, callback) => {
   connection.query(`SELECT * FROM Features WHERE id = ${id}`, (err, result) => {
     if(err){
-      console.log(err);
+      //console.log(err);
     } else {
       callback(err, result);
     }
