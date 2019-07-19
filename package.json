@@ -4,11 +4,12 @@
   "description": "Module to display featured film on Moodu",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint tests/ server/",
+    "lint": "eslint server/ tests/ client/src/component/**",
     "seed": "node server/seeder.js",
     "start": "nodemon server/server.js",
     "test": "jest",
-    "webpack-watch": "webpack -d --watch"
+    "webpack-watch": "webpack -d --watch",
+    "webpack": "webpack -d"
   },
   "repository": {
     "type": "git",
