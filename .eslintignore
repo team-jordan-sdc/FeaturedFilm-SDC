@@ -1,3 +1,2 @@
-.eslint*
-**/client/dist/bundle.js
+bundle.js
 
