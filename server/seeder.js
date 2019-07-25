@@ -2,14 +2,14 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 const { LoremIpsum } = require('lorem-ipsum');
 const { movies } = require('./movieList.js');
-
+require('dotenv').config();
 
 const database = 'featurefilm';
 const connection = mysql.createConnection({
-    host: 'mycoolsql',
-    port: '3306',
-    user: 'root',
-    password: 'sheep',
+    host: process.env.DB_host,
+    port: process.env.DB_port,
+    user: process.env.DB_user,
+    password: process.env.DB_password,
 });
 
 
