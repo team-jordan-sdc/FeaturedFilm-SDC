@@ -5,8 +5,8 @@ services:
     container_name: mycoolsql
     environment:
       MYSQL_DATABASE: mydb
-      MYSQL_USER: mysql
-      MYSQL_ROOT_PASSWORD: sheep
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: MattM
     ports:
       - "3306:3306"
     expose:
