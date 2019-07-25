@@ -31,7 +31,7 @@ app.get('/api/featured', (req, res) => {
 
 // create
 app.post('/api/featured', (req, res) => {
-  const film = req.body.filmInfo;
+  const { film } = req.body;
   db.createFeaturedFilm(film)
     .then(result => res.send(result).status(201).end())
     .catch(error => console.log('An error occurred:', error));
@@ -39,7 +39,7 @@ app.post('/api/featured', (req, res) => {
 
 // update
 app.put('/api/featured', (req, res) => {
-  const film = req.body.filmInfo;
+  const { film } = req.body;
   db.updateFeaturedFilm(film)
     .then(result => res.send(result).status(405).end())
     .catch(error => console.log('An error occurred:', error));
