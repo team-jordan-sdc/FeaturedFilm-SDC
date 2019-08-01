@@ -16,10 +16,10 @@ const getRandomNumberTo500 = function () {
   return Math.floor(Math.random() * 500) + 1;
 };
 const getRandomNumberTo2000 = function () {
-  return Math.floor(Math.random() * 2000) +1;
+  return Math.floor(Math.random() * 2000) + 1;
 };
 const getRandomNumberTo5000 = function () {
-  return Math.floor(Math.random() * 5000) +1;
+  return Math.floor(Math.random() * 5000) + 1;
 };
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -44,5 +44,5 @@ module.exports = {
   getRandomNumberTo500,
   getRandomNumberTo2000,
   getRandomNumberTo5000,
-  lorem
-}
+  lorem,
+};
