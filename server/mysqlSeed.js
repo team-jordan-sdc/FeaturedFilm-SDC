@@ -2,6 +2,7 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 const { LoremIpsum } = require('lorem-ipsum');
 const { movies } = require('./movieList.js');
+
 const database = 'featurefilm';
 const helper = require('./helperfunctions.js');
 
