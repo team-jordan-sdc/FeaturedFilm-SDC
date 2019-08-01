@@ -1,13 +1,13 @@
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
-const helper = require('./helperfunctions.js');
+const helper = require('./helperFunctions.js');
 
 const writer = csvWriter();
 
 const writePsqlCSV = async function () {
   console.time('writepsql');
   writer.pipe(fs.createWriteStream('./server/psqlFeatures.csv'));
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 0; i < 10000000; i += 1) {
     if (i % 1000000 === 0) {
       console.log(i);
     }

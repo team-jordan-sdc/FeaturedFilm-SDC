@@ -85,7 +85,7 @@ const createObject = function () {
 async function insertObjects() {
   let objectsArray = [];
   const insertCount = 0;
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 0; i < 10000000; i += 1) {
     objectsArray.push(createObject());
     if (objectsArray.length === 10000) {
       console.log(i);

@@ -2,9 +2,8 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 const { LoremIpsum } = require('lorem-ipsum');
 const { movies } = require('./movieList.js');
-
 const database = 'featurefilm';
-const helper = require('./helperfunctions.js');
+const helper = require('./helperFunctions.js');
 
 require('dotenv').config();
 
@@ -61,7 +60,7 @@ async function bulkInsert(values) {
 
 async function insertValues() {
   let values = [];
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 0; i < 10000000; i += 1) {
     values.push(createRow());
     if (values.length === 25000) {
       console.log(i);
