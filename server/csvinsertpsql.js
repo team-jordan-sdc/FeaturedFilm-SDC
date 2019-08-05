@@ -1,5 +1,7 @@
-const { Pool } = require('pg');
 require('dotenv').config();
+const { Pool } = require('pg');
+
+const writeError = 'An error during insertion has ocurred. Please check relative paths read/write permissions and ensure dotenv config is configured properly.';
 
 const pool = new Pool({
   user: process.env.PGUSER,
@@ -42,4 +44,8 @@ pool.query(dropTableQuery)
   .then(() => console.time('copy'))
   .then(() => pool.query(copyTableQuery))
   .then(() => console.timeEnd('copy'))
-  .catch(err => console.log(err));
+  .catch((error) => {
+    console.log(writeError);
+    console.log(error);
+    process.exit(1);
+  });
