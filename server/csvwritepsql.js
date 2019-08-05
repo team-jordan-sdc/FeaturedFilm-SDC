@@ -1,7 +1,6 @@
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
 const helper = require('./helperFunctions.js');
-
 const writer = csvWriter();
 
 const writePsqlCSV = async function () {
