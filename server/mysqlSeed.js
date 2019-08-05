@@ -1,8 +1,5 @@
 const mysql = require('mysql');
 const Promise = require('bluebird');
-const { LoremIpsum } = require('lorem-ipsum');
-const { movies } = require('./movieList.js');
-const database = 'featurefilm';
 const helper = require('./helperFunctions.js');
 
 require('dotenv').config();
@@ -13,7 +10,7 @@ const connection = mysql.createConnection({
   user: process.env.DB_user,
   password: process.env.DB_password,
 });
-
+const db = Promise.promisifyAll(connection, { multiArgs: true });
 const createRow = function () {
   return [
     `${helper.movieNamesArray[Math.floor(Math.random() * helper.movieNamesArray.length)]}`,
