@@ -9,7 +9,7 @@ const pool = new Pool({
   port: process.env.PGPORT,
 });
 
-const searchTableQuery = 'EXPLAIN ANALYZE SELECT (title, category_1, description) FROM psqlFeatures WHERE id=10000000;';
+const searchTableQuery = 'EXPLAIN ANALYZE SELECT (title, category_1, description) FROM psqlFeatures WHERE id=10000010;';
 
 const psqlEndQuery = function () {
   console.time('endQuery');

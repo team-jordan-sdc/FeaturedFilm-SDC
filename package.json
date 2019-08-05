@@ -4,13 +4,21 @@
   "description": "Module to display featured film on Moodu",
   "main": "index.js",
   "scripts": {
+    "csvwrite": "--max_old_space_size=4096 server/csvwritepsql.js",
+    "download-Backgrounds": "node server/downloadBackground.js",
+    "download-Images": "node server/downloadFeature.js",
+    "k6-Get-Test": "k6 run tests/k6GetTest.js",
+    "k6-Post-Test": "k6 run tests/k6PostTest.js",
     "lint": "eslint server/ tests/ client/src/component/**",
+    "mongoTimed": "node server/mongoTimedQuery.js",
+    "mysql-seed": "node server/mysqlSeed.js",
+    "psql-seed": "node server/psqlSeed.js",
+    "psql-timed":"node server/psqlTimedQuery.js",
     "seed": "node server/seeder.js",
     "start": "nodemon server/server.js",
     "test": "jest",
-    "webpack-watch": "webpack -d --watch",
     "webpack": "webpack -d",
-    "csvwrite": "--max_old_space_size=4096 server/csvwritepsql.js"
+    "webpack-watch": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -42,6 +50,7 @@
   "dependencies": {
     "bluebird": "^3.3.4",
     "body-parser": "^1.17.0",
+    "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
     "csv-writer": "^1.5.0",
     "dotenv": "^8.0.0",
@@ -49,7 +58,10 @@
     "express": "^4.15.0",
     "image-downloader": "^3.4.2",
     "lorem-ipsum": "^2.0.3",
+    "mongodb": "^3.3.0-beta2",
+    "mongoose": "^5.6.7",
     "mysql": "^2.12.0",
+    "newrelic": "^5.11.0",
     "path": "^0.12.7",
     "pg": "^7.12.0",
     "pg-promise": "^9.0.0",
