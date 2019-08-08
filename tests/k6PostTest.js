@@ -18,7 +18,7 @@ export const options = {
 export default function () {
   const headers = { 'Content-Type': 'application/json' };
   const postObj = JSON.stringify({
-    film: ['test', 'category1', 'category2', 5, 'rating', 9, 5, 999, 2, 'description', 4, 4, 4, 4, 'movieshoturl', 'moviecoverurl'],
+    film: [5,2,1,2000,3,120,30,2,5,"desc",3,4,5,1,2,2],
   });
   const res = http.post('http://localhost:3002/api/featured', postObj, { headers });
   check(res, {
