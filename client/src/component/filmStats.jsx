@@ -7,8 +7,8 @@ import { GeneralStats, RatingZone, MyDate, Important, TomatoZone, StarZone, NoSt
 const MovieStats = (props) => (
   <div>
     <GeneralStats>
-      <MyDate>{props.film.category_1} | {props.film.category_2} | {props.film.release_date}</MyDate>
-      <Important>{props.film.mpaa_rating}</Important>
+      <MyDate>{props.film.category1} | {props.film.category2} | {props.film.release_date}</MyDate>
+      <Important>{props.film.rating}</Important>
       <Important>{props.film.length} min</Important>
       <Important>CC</Important>
     </GeneralStats>
