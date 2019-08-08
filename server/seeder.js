@@ -10,10 +10,8 @@ const connection = mysql.createConnection({
     port: process.env.DB_port,
     user: process.env.DB_user,
     password: process.env.DB_password,
+    database: process.env.DB_database
 });
-
-
-
 
 const bgPath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+backgrounds/';
 const featurePath = 'https://fec1-arwen-featuredfilms.s3-us-west-2.amazonaws.com/mudoo+posters/';
@@ -37,9 +35,9 @@ const mpaaRatings = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'Unrated'];
 
 
 connection.connectAsync()
-  .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${database}`))
-  .then(() => db.queryAsync(`CREATE DATABASE ${database}`))
-  .then(() => db.queryAsync(`USE ${database}`))
+  .then(() => db.queryAsync(`DROP DATABASE IF EXISTS ${process.env.DB_database}`))
+  .then(() => db.queryAsync(`CREATE DATABASE ${process.env.DB_database}`))
+  .then(() => db.queryAsync(`USE ${process.env.DB_database}`))
   .then(() => db.queryAsync(`
     CREATE TABLE Features (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -104,7 +102,7 @@ connection.connectAsync()
         '${featurePath + movieId + '-168.jpeg'}'
       )`);
     }
-  });
+  }).then(()=>console.log('done')).catch((err)=>console.log(err));
 
 module.exports = {
   movies,
