@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 app.use('*.js', (req, res, next) => {
   req.url += '.js';
-  res.set('Content-Encoding', 'gzip');
   next();
 });
 
