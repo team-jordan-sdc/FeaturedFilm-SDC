@@ -1,5 +1,5 @@
 require('dotenv').config();
-const helper = require('./helperfunctions.js');
+const helper = require('./helperFunctions.js');
 const pgp = require('pg-promise')({ capSQL: true });
 
 const db = pgp({
