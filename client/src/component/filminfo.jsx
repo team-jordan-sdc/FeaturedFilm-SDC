@@ -8,7 +8,7 @@ const FilmInfo = (props) => (
     <FilmInfoZone>
       <ContentZone>
         <MovieThumbnail>
-          <img src={props.film.movie_cover_url} alt="movie image goes here"></img>
+          <img src={props.film.featureurl} alt="movie image goes here"></img>
         </MovieThumbnail>
         <MovieInfo>
           <MovieTitle title={props.film.title} />
